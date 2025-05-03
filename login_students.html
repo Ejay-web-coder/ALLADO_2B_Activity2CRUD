@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="view/css/bootstrap.min.css">
+    <link rel="stylesheet" href="view/css/boxicons.min.css">
+    <link rel="stylesheet" href="view/css/login_admin.css">
+    <script src="view/js/axios.min.js"></script>
+    <script src="view/js/bootstrap.min.js"></script>
+    <script src="view/js/login_admin.js"></script>
+</head>
+<body>
+    <a aria-label="Go back" class="back-button" href="home.html">
+       <img alt="Left arrow icon" height="16" src="view/img/back.png" width="16"/>
+      </a>
+    <div class="container">
+            <div class="left">
+                <div class="logo">
+                    <img class="logoimg" src="view/img/logo.png" alt="">
+                </div>
+                <p>Employment Opportunities for College Students at <br>OMSC — Mamburao Campus</p>
+            </div>
+            <div class="right">
+                <h2>Oraganization <br> Log in</h2>
+                <form>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        
+                        <input type="email" placeholder="Username" name="email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="Password" name="password" id="password" required>
+                    </div>
+                    <button type="button" class="btn" onclick="validateLogin()">Log In</button>
+                </form>
+                <div class="signup">
+                
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

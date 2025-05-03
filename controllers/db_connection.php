@@ -1,9 +1,8 @@
-<?ph
 <?php
 $servername = "localhost"; 
 $username = "root"; 
 $password = "";
-$dbname = "user_login_db_allado"; 
+$dbname = "login_student"; 
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,34 +1,23 @@
-<?php
-include 'controllers/db_connection.php';
+<?php 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+include "db_connection.php";
 
-    
-    $stmt = $conn->prepare("SELECT password FROM users WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt->store_result();
+// Set the response content type to JSON
+header('Content-Type: application/json');
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($hashed_password);
-        $stmt->fetch();
+// Read raw POST data from the request body and decode it from JSON to an associative array
+$data = json_decode(file_get_contents("php://input"), true);
 
-     
-        if (password_verify($password, $hashed_password)) {
-            session_start();
-            $_SESSION['email'] = $email;
-            header("Location: dashboard.php"); 
-            exit();
-        } else {
-            echo "Incorrect password.";
-        }
-    } else {
-        echo "Email not found.";
-    }
+$email = $data["uname"];
+$password = $data["pword"];
 
-    $stmt->close();
-    $conn->close();
+//SQL query : SELECT
+$sql = "SELECT * FROM user WHERE email = '$email' AND password = '$password'";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    //user found
+    echo "valid";
+} else {
+    echo "invalid";
 }
-?>
